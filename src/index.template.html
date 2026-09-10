@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{NAME}} | {{TAGLINE}}</title>
+<meta name="description" content="{{INTRO_SHORT}}">
+<meta property="og:title" content="{{NAME}} — {{TAGLINE}}">
+<meta property="og:description" content="{{INTRO_SHORT}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script type="application/ld+json">{{JSONLD}}</script>
+</head>
+<body>
+<a class="skip" href="#browse">Skip to listings</a>
+{{DEMOBAR}}
+
+<header class="nav" id="nav">
+  <div class="shell">
+    <a class="logo" href="#top"><span class="m">{{NAME}}</span><span class="s">{{TAGLINE}}</span></a>
+    <nav aria-label="Primary"><ul>
+      <li><a href="#browse">Listings</a></li>
+      <li><a href="#agent">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+    <a class="btn fill" href="#contact">Book a viewing</a>
+  </div>
+</header>
+
+<header class="hero" id="top">
+  <img src="assets/img/hero.webp" alt="" width="1600" height="1067" fetchpriority="high">
+  <div class="inner"><div class="shell">
+    <p class="eyebrow">{{TAGLINE}}</p>
+    <h1>Homes on the north and west sides, without the sales pitch.</h1>
+    <p>{{INTRO}}</p>
+    <div class="cta">
+      <a class="btn clay" href="#browse">Browse listings</a>
+      <a class="btn" href="#contact">Talk to {{FIRST}}</a>
+    </div>
+  </div></div>
+</header>
+
+<section class="stats"><div class="shell">{{STATS}}</div></section>
+
+<section class="section" id="browse"><div class="shell">
+  <div class="head">
+    <h2>Current listings</h2>
+    <p>Filter by neighborhood, price, size or type. The map follows what you filter, and clicking a pin scrolls to the home.</p>
+  </div>
+
+  <div class="filters" role="group" aria-label="Filter listings">
+    <div class="field">
+      <label for="f-hood">Neighborhood</label>
+      <select id="f-hood"><option value="">All</option>{{HOODS}}</select>
+    </div>
+    <div class="field">
+      <label for="f-type">Type</label>
+      <select id="f-type"><option value="">All</option>{{TYPES}}</select>
+    </div>
+    <div class="field">
+      <label for="f-beds">Beds</label>
+      <select id="f-beds"><option value="0">Any</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option></select>
+    </div>
+    <div class="field">
+      <label for="f-status">Status</label>
+      <select id="f-status"><option value="">All</option><option value="active">Active</option><option value="pending">Pending</option><option value="sold">Sold</option></select>
+    </div>
+    <div class="field">
+      <label for="f-price">Max price &mdash; <span id="f-price-out">any</span></label>
+      <input type="range" id="f-price" min="350000" max="1200000" step="25000" value="1200000">
+    </div>
+    <button class="reset" type="button" id="f-reset">Reset</button>
+  </div>
+
+  <div class="result-line">
+    <span><b id="count">0</b> homes<span id="countNote"></span></span>
+    <span id="priceRange"></span>
+  </div>
+
+  <div class="browse">
+    <div>
+      <div class="cards" id="cards"></div>
+      <div class="detail" id="detail" hidden></div>
+    </div>
+    <div id="map" role="region" aria-label="Map of listings"></div>
+  </div>
+</div></section>
+
+<section class="section section-alt" id="agent"><div class="shell split">
+  <div class="im rv"><img src="assets/img/agent.webp" alt="" loading="lazy" width="900" height="945"></div>
+  <div class="rv">
+    <p class="eyebrow">About</p>
+    <h2>{{AGENT}}</h2>
+    <p>{{INTRO}}</p>
+    <p>I work with a small number of clients at a time, which means you get me rather than an assistant. If a place has a problem, I will tell you before you write an offer, not after.</p>
+    <p class="lic">{{ROLE}} &middot; {{LICENSE}}</p>
+  </div>
+</div></section>
+
+<section class="section" id="contact"><div class="shell split">
+  <div class="rv">
+    <p class="eyebrow">Get in touch</p>
+    <h2>Book a viewing</h2>
+    <p>Tell me what you are looking for and roughly what you want to spend. I will send back three or four places worth your Saturday, and say so if there is nothing good right now.</p>
+    <div class="info">
+      <div><h4>Direct</h4><p><a href="tel:{{PHONE_RAW}}">{{PHONE}}</a></p><p><a href="mailto:{{EMAIL}}">{{EMAIL}}</a></p></div>
+      <div><h4>Office</h4><p>{{OFF1}}<br>{{OFF2}}</p></div>
+    </div>
+  </div>
+  <form class="lead rv" id="lead" novalidate>
+    <div><label for="ln">Name</label><input id="ln" name="name" required autocomplete="name"></div>
+    <div><label for="le">Email</label><input id="le" name="email" type="email" required autocomplete="email"></div>
+    <div><label for="lb">Budget</label>
+      <select id="lb" name="budget">
+        <option>Under $500k</option><option>$500k to $750k</option>
+        <option>$750k to $1m</option><option>Over $1m</option>
+      </select></div>
+    <div><label for="lh">Neighborhood</label>
+      <select id="lh" name="hood"><option value="">No preference</option>{{HOODS}}</select></div>
+    <div class="full"><label for="lm">What are you looking for?</label><textarea id="lm" name="message"></textarea></div>
+    <button class="btn clay" type="submit">Send enquiry</button>
+    <p class="form-note">Demo form. In production this posts to Formspree, a CRM, or straight to the agent's inbox. Nothing is sent from this page.</p>
+  </form>
+</div></section>
+
+{{DEMOFOOT}}
+<footer><div class="shell">
+  <span>&copy; <span id="yr">2026</span> {{NAME}} &middot; {{LICENSE}}</span>
+  <span>{{OFF1}}, {{OFF2}}</span>
+  <span><a href="tel:{{PHONE_RAW}}">{{PHONE}}</a></span>
+</div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+{{SCRIPT}}
+</body>
+</html>

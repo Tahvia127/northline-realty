@@ -1,0 +1,49 @@
+{
+  "note": "Add, edit or remove listings here. status: active | pending | sold. Coordinates are decimal lat/lng.",
+  "listings": [
+    { "id": "lp-fullerton", "address": "2214 W Fullerton Ave", "neighborhood": "Logan Square", "price": 685000,
+      "beds": 3, "baths": 2, "sqft": 1850, "type": "House", "status": "active", "lat": 41.9251, "lng": -87.6845,
+      "image": "l1", "blurb": "A gut rehab that kept the good bones. South-facing back windows, so the kitchen gets light all afternoon.",
+      "features": ["Rehabbed 2024", "Garage parking", "Finished basement"] },
+
+    { "id": "wp-hoyne", "address": "1536 N Hoyne Ave", "neighborhood": "Wicker Park", "price": 549000,
+      "beds": 2, "baths": 2, "sqft": 1240, "type": "Condo", "status": "active", "lat": 41.9089, "lng": -87.6797,
+      "image": "l2", "blurb": "Top floor of a three-flat, with a private roof deck that actually gets used.",
+      "features": ["Private roof deck", "In-unit laundry", "Two blocks to the Blue Line"] },
+
+    { "id": "lv-southport", "address": "3418 N Southport Ave", "neighborhood": "Lakeview", "price": 892000,
+      "beds": 4, "baths": 3, "sqft": 2400, "type": "House", "status": "active", "lat": 41.9442, "lng": -87.6637,
+      "image": "l3", "blurb": "Four real bedrooms on one floor, which is rarer in this pocket than the listings suggest.",
+      "features": ["Corner lot", "Two-car garage", "Walk to Southport Corridor"] },
+
+    { "id": "wl-randolph", "address": "1040 W Randolph St", "neighborhood": "West Loop", "price": 725000,
+      "beds": 2, "baths": 2, "sqft": 1420, "type": "Loft", "status": "pending", "lat": 41.8842, "lng": -87.6531,
+      "image": "l4", "blurb": "Timber loft with the original columns left exposed. Twelve-foot ceilings.",
+      "features": ["Timber loft", "Doorman", "Restaurant Row"] },
+
+    { "id": "as-clark", "address": "5218 N Clark St", "neighborhood": "Andersonville", "price": 439000,
+      "beds": 2, "baths": 1, "sqft": 1050, "type": "Condo", "status": "active", "lat": 41.9762, "lng": -87.6684,
+      "image": "l5", "blurb": "Vintage courtyard building, updated kitchen, and the commute is easier than people expect.",
+      "features": ["Vintage details", "Courtyard building", "Storage locker"] },
+
+    { "id": "bt-cortland", "address": "2032 W Cortland St", "neighborhood": "Bucktown", "price": 1150000,
+      "beds": 4, "baths": 4, "sqft": 3100, "type": "House", "status": "active", "lat": 41.9163, "lng": -87.6790,
+      "image": "l6", "blurb": "New construction on a quiet block, with a roof deck sized for a real table.",
+      "features": ["New construction", "Roof deck", "Radiant heat"] },
+
+    { "id": "pl-18th", "address": "1719 W 18th St", "neighborhood": "Pilsen", "price": 379000,
+      "beds": 2, "baths": 1, "sqft": 980, "type": "Condo", "status": "active", "lat": 41.8577, "lng": -87.6690,
+      "image": "l7", "blurb": "First-time buyer territory. Small, well kept, and the assessments are honest.",
+      "features": ["Low assessments", "Exposed brick", "Pink Line at the corner"] },
+
+    { "id": "hp-kimbark", "address": "5429 S Kimbark Ave", "neighborhood": "Hyde Park", "price": 615000,
+      "beds": 3, "baths": 2, "sqft": 2050, "type": "House", "status": "sold", "lat": 41.7981, "lng": -87.5944,
+      "image": "l8", "blurb": "Closed in eleven days at full price. Listed here so you can see the comps.",
+      "features": ["Closed 2026", "Full price", "Near the university"] },
+
+    { "id": "rn-huron", "address": "440 W Huron St", "neighborhood": "River North", "price": 968000,
+      "beds": 3, "baths": 2, "sqft": 1780, "type": "Loft", "status": "active", "lat": 41.8945, "lng": -87.6395,
+      "image": "kitchen", "blurb": "Concrete loft with a kitchen someone actually cooks in. Deeded parking included.",
+      "features": ["Deeded parking", "Concrete loft", "River walk"] }
+  ]
+}

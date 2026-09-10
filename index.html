@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Northline | Chicago Real Estate</title>
+<meta name="description" content="I sell homes on the north and west sides, mostly to people buying their first or second place. No pressure, no jargon, and a straight answer when a listing is not right for you..">
+<meta property="og:title" content="Northline — Chicago Real Estate">
+<meta property="og:description" content="I sell homes on the north and west sides, mostly to people buying their first or second place. No pressure, no jargon, and a straight answer when a listing is not right for you..">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Northline — Dana Okoye","description":"I sell homes on the north and west sides, mostly to people buying their first or second place. No pressure, no jargon, and a straight answer when a listing is not right for you.","telephone":"(555) 555-0164","email":"dana@northline.example","areaServed":"Chicago","address":{"@type":"PostalAddress","streetAddress":"1701 W North Ave, Suite 3","addressLocality":"Chicago"}}</script>
+</head>
+<body>
+<a class="skip" href="#browse">Skip to listings</a>
+<div class="demo-bar" role="note"><p>Demo site. Northline is a fictional brokerage, built to show what a small-business site can do.</p><span class="sep">&middot;</span>
+  <a href="https://tahvia127.github.io/framework-studio/" target="_blank" rel="noopener noreferrer">Made by Framework Studio</a></div>
+
+<header class="nav" id="nav">
+  <div class="shell">
+    <a class="logo" href="#top"><span class="m">Northline</span><span class="s">Chicago Real Estate</span></a>
+    <nav aria-label="Primary"><ul>
+      <li><a href="#browse">Listings</a></li>
+      <li><a href="#agent">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+    <a class="btn fill" href="#contact">Book a viewing</a>
+  </div>
+</header>
+
+<header class="hero" id="top">
+  <img src="assets/img/hero.webp" alt="" width="1600" height="1067" fetchpriority="high">
+  <div class="inner"><div class="shell">
+    <p class="eyebrow">Chicago Real Estate</p>
+    <h1>Homes on the north and west sides, without the sales pitch.</h1>
+    <p>I sell homes on the north and west sides, mostly to people buying their first or second place. No pressure, no jargon, and a straight answer when a listing is not right for you.</p>
+    <div class="cta">
+      <a class="btn clay" href="#browse">Browse listings</a>
+      <a class="btn" href="#contact">Talk to Dana</a>
+    </div>
+  </div></div>
+</header>
+
+<section class="stats"><div class="shell"><div><b>62</b><span>Homes closed</span></div><div><b>18</b><span>Days on market, median</span></div><div><b>99%</b><span>Of list price</span></div><div><b>9</b><span>Neighborhoods</span></div></div></section>
+
+<section class="section" id="browse"><div class="shell">
+  <div class="head">
+    <h2>Current listings</h2>
+    <p>Filter by neighborhood, price, size or type. The map follows what you filter, and clicking a pin scrolls to the home.</p>
+  </div>
+
+  <div class="filters" role="group" aria-label="Filter listings">
+    <div class="field">
+      <label for="f-hood">Neighborhood</label>
+      <select id="f-hood"><option value="">All</option><option value="Andersonville">Andersonville</option><option value="Bucktown">Bucktown</option><option value="Hyde Park">Hyde Park</option><option value="Lakeview">Lakeview</option><option value="Logan Square">Logan Square</option><option value="Pilsen">Pilsen</option><option value="River North">River North</option><option value="West Loop">West Loop</option><option value="Wicker Park">Wicker Park</option></select>
+    </div>
+    <div class="field">
+      <label for="f-type">Type</label>
+      <select id="f-type"><option value="">All</option><option value="Condo">Condo</option><option value="House">House</option><option value="Loft">Loft</option></select>
+    </div>
+    <div class="field">
+      <label for="f-beds">Beds</label>
+      <select id="f-beds"><option value="0">Any</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option></select>
+    </div>
+    <div class="field">
+      <label for="f-status">Status</label>
+      <select id="f-status"><option value="">All</option><option value="active">Active</option><option value="pending">Pending</option><option value="sold">Sold</option></select>
+    </div>
+    <div class="field">
+      <label for="f-price">Max price &mdash; <span id="f-price-out">any</span></label>
+      <input type="range" id="f-price" min="350000" max="1200000" step="25000" value="1200000">
+    </div>
+    <button class="reset" type="button" id="f-reset">Reset</button>
+  </div>
+
+  <div class="result-line">
+    <span><b id="count">0</b> homes<span id="countNote"></span></span>
+    <span id="priceRange"></span>
+  </div>
+
+  <div class="browse">
+    <div>
+      <div class="cards" id="cards"></div>
+      <div class="detail" id="detail" hidden></div>
+    </div>
+    <div id="map" role="region" aria-label="Map of listings"></div>
+  </div>
+</div></section>
+
+<section class="section section-alt" id="agent"><div class="shell split">
+  <div class="im rv"><img src="assets/img/agent.webp" alt="" loading="lazy" width="900" height="945"></div>
+  <div class="rv">
+    <p class="eyebrow">About</p>
+    <h2>Dana Okoye</h2>
+    <p>I sell homes on the north and west sides, mostly to people buying their first or second place. No pressure, no jargon, and a straight answer when a listing is not right for you.</p>
+    <p>I work with a small number of clients at a time, which means you get me rather than an assistant. If a place has a problem, I will tell you before you write an offer, not after.</p>
+    <p class="lic">Broker, Northline Real Estate &middot; IL Managing Broker #471.000000</p>
+  </div>
+</div></section>
+
+<section class="section" id="contact"><div class="shell split">
+  <div class="rv">
+    <p class="eyebrow">Get in touch</p>
+    <h2>Book a viewing</h2>
+    <p>Tell me what you are looking for and roughly what you want to spend. I will send back three or four places worth your Saturday, and say so if there is nothing good right now.</p>
+    <div class="info">
+      <div><h4>Direct</h4><p><a href="tel:5555550164">(555) 555-0164</a></p><p><a href="mailto:dana@northline.example">dana@northline.example</a></p></div>
+      <div><h4>Office</h4><p>1701 W North Ave, Suite 3<br>Chicago, IL 60622</p></div>
+    </div>
+  </div>
+  <form class="lead rv" id="lead" novalidate>
+    <div><label for="ln">Name</label><input id="ln" name="name" required autocomplete="name"></div>
+    <div><label for="le">Email</label><input id="le" name="email" type="email" required autocomplete="email"></div>
+    <div><label for="lb">Budget</label>
+      <select id="lb" name="budget">
+        <option>Under $500k</option><option>$500k to $750k</option>
+        <option>$750k to $1m</option><option>Over $1m</option>
+      </select></div>
+    <div><label for="lh">Neighborhood</label>
+      <select id="lh" name="hood"><option value="">No preference</option><option value="Andersonville">Andersonville</option><option value="Bucktown">Bucktown</option><option value="Hyde Park">Hyde Park</option><option value="Lakeview">Lakeview</option><option value="Logan Square">Logan Square</option><option value="Pilsen">Pilsen</option><option value="River North">River North</option><option value="West Loop">West Loop</option><option value="Wicker Park">Wicker Park</option></select></div>
+    <div class="full"><label for="lm">What are you looking for?</label><textarea id="lm" name="message"></textarea></div>
+    <button class="btn clay" type="submit">Send enquiry</button>
+    <p class="form-note">Demo form. In production this posts to Formspree, a CRM, or straight to the agent's inbox. Nothing is sent from this page.</p>
+  </form>
+</div></section>
+
+<div class="demo-foot">Demo site. Northline is a fictional brokerage, built to show what a small-business site can do.
+  <a href="https://tahvia127.github.io/framework-studio/" target="_blank" rel="noopener noreferrer">Made by Framework Studio</a></div>
+<footer><div class="shell">
+  <span>&copy; <span id="yr">2026</span> Northline &middot; IL Managing Broker #471.000000</span>
+  <span>1701 W North Ave, Suite 3, Chicago, IL 60622</span>
+  <span><a href="tel:5555550164">(555) 555-0164</a></span>
+</div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+var LISTINGS = [{"id":"lp-fullerton","address":"2214 W Fullerton Ave","neighborhood":"Logan Square","price":685000,"beds":3,"baths":2,"sqft":1850,"type":"House","status":"active","lat":41.9251,"lng":-87.6845,"image":"l1","blurb":"A gut rehab that kept the good bones. South-facing back windows, so the kitchen gets light all afternoon.","features":["Rehabbed 2024","Garage parking","Finished basement"]},{"id":"wp-hoyne","address":"1536 N Hoyne Ave","neighborhood":"Wicker Park","price":549000,"beds":2,"baths":2,"sqft":1240,"type":"Condo","status":"active","lat":41.9089,"lng":-87.6797,"image":"l2","blurb":"Top floor of a three-flat, with a private roof deck that actually gets used.","features":["Private roof deck","In-unit laundry","Two blocks to the Blue Line"]},{"id":"lv-southport","address":"3418 N Southport Ave","neighborhood":"Lakeview","price":892000,"beds":4,"baths":3,"sqft":2400,"type":"House","status":"active","lat":41.9442,"lng":-87.6637,"image":"l3","blurb":"Four real bedrooms on one floor, which is rarer in this pocket than the listings suggest.","features":["Corner lot","Two-car garage","Walk to Southport Corridor"]},{"id":"wl-randolph","address":"1040 W Randolph St","neighborhood":"West Loop","price":725000,"beds":2,"baths":2,"sqft":1420,"type":"Loft","status":"pending","lat":41.8842,"lng":-87.6531,"image":"l4","blurb":"Timber loft with the original columns left exposed. Twelve-foot ceilings.","features":["Timber loft","Doorman","Restaurant Row"]},{"id":"as-clark","address":"5218 N Clark St","neighborhood":"Andersonville","price":439000,"beds":2,"baths":1,"sqft":1050,"type":"Condo","status":"active","lat":41.9762,"lng":-87.6684,"image":"l5","blurb":"Vintage courtyard building, updated kitchen, and the commute is easier than people expect.","features":["Vintage details","Courtyard building","Storage locker"]},{"id":"bt-cortland","address":"2032 W Cortland St","neighborhood":"Bucktown","price":1150000,"beds":4,"baths":4,"sqft":3100,"type":"House","status":"active","lat":41.9163,"lng":-87.679,"image":"l6","blurb":"New construction on a quiet block, with a roof deck sized for a real table.","features":["New construction","Roof deck","Radiant heat"]},{"id":"pl-18th","address":"1719 W 18th St","neighborhood":"Pilsen","price":379000,"beds":2,"baths":1,"sqft":980,"type":"Condo","status":"active","lat":41.8577,"lng":-87.669,"image":"l7","blurb":"First-time buyer territory. Small, well kept, and the assessments are honest.","features":["Low assessments","Exposed brick","Pink Line at the corner"]},{"id":"hp-kimbark","address":"5429 S Kimbark Ave","neighborhood":"Hyde Park","price":615000,"beds":3,"baths":2,"sqft":2050,"type":"House","status":"sold","lat":41.7981,"lng":-87.5944,"image":"l8","blurb":"Closed in eleven days at full price. Listed here so you can see the comps.","features":["Closed 2026","Full price","Near the university"]},{"id":"rn-huron","address":"440 W Huron St","neighborhood":"River North","price":968000,"beds":3,"baths":2,"sqft":1780,"type":"Loft","status":"active","lat":41.8945,"lng":-87.6395,"image":"kitchen","blurb":"Concrete loft with a kitchen someone actually cooks in. Deeded parking included.","features":["Deeded parking","Concrete loft","River walk"]}];
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+var nav=document.getElementById('nav');
+addEventListener('scroll',function(){nav.classList.toggle('stuck',scrollY>12)},{passive:true});
+if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.05});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+}else{document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')})}
+
+var money=function(n){return '$'+n.toLocaleString('en-US')};
+var el=function(id){return document.getElementById(id)};
+var cards=el('cards'), detail=el('detail');
+
+/* ---------- map ---------- */
+var map=null, markers={};
+if (window.L && L.map) {
+  map = L.map('map',{scrollWheelZoom:false}).setView([41.905,-87.665],11.6);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+    maxZoom:18, attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
+  LISTINGS.forEach(function(p){
+    var m=L.marker([p.lat,p.lng],{icon:L.divIcon({className:'',
+      html:'<span class="pin'+(p.status==='sold'?' sold':'')+'" data-id="'+p.id+'">'+money(p.price)+'</span>',
+      iconSize:null})}).addTo(map);
+    m.on('click',function(){ focus(p.id,true) });
+    markers[p.id]=m;
+  });
+}
+
+/* ---------- filtering ---------- */
+function current(){
+  var hood=el('f-hood').value, type=el('f-type').value,
+      beds=+el('f-beds').value, status=el('f-status').value, max=+el('f-price').value;
+  return LISTINGS.filter(function(p){
+    return (!hood||p.neighborhood===hood) && (!type||p.type===type) &&
+           (!beds||p.beds>=beds) && (!status||p.status===status) && p.price<=max;
+  });
+}
+function render(){
+  var list=current();
+  el('count').textContent=list.length;
+  el('countNote').textContent = list.length===LISTINGS.length ? '' : ' of '+LISTINGS.length;
+  el('priceRange').textContent = list.length
+    ? money(Math.min.apply(null,list.map(function(p){return p.price})))+' to '+money(Math.max.apply(null,list.map(function(p){return p.price})))
+    : '';
+  cards.innerHTML = list.length ? list.map(function(p){
+    return '<article class="card" data-id="'+p.id+'" tabindex="0">'+
+      '<div class="im"><img src="assets/img/'+p.image+'.webp" alt="'+p.address+'" loading="lazy" width="900" height="653">'+
+      '<span class="tagpill '+p.status+'">'+p.status+'</span></div>'+
+      '<div class="bd"><p class="pr">'+money(p.price)+'</p>'+
+      '<p class="ad">'+p.address+'</p><p class="nb">'+p.neighborhood+'</p>'+
+      '<div class="sp"><span><b>'+p.beds+'</b> bd</span><span><b>'+p.baths+'</b> ba</span>'+
+      '<span><b>'+p.sqft.toLocaleString('en-US')+'</b> sq ft</span><span>'+p.type+'</span></div>'+
+      '</div></article>' }).join('')
+    : '<p class="empty">No homes match those filters. Try widening the price or clearing the neighborhood.</p>';
+
+  var ids={}; list.forEach(function(p){ids[p.id]=1});
+  Object.keys(markers).forEach(function(id){
+    var m=markers[id];
+    if(ids[id]){ if(!map.hasLayer(m)) m.addTo(map) } else { if(map.hasLayer(m)) map.removeLayer(m) }
+  });
+  if(map && list.length){ map.fitBounds(list.map(function(p){return [p.lat,p.lng]}),{padding:[42,42],maxZoom:14}) }
+  detail.hidden=true;
+}
+function focus(id,fromMap){
+  var p=LISTINGS.find(function(x){return x.id===id}); if(!p) return;
+  document.querySelectorAll('.card').forEach(function(c){c.classList.toggle('hl',c.dataset.id===id)});
+  document.querySelectorAll('.pin').forEach(function(s){s.classList.toggle('on',s.dataset.id===id)});
+  detail.hidden=false;
+  detail.innerHTML='<h3>'+p.address+'</h3><p class="nb" style="color:var(--faint);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;margin:0 0 .6rem">'+
+    p.neighborhood+' &middot; '+p.type+' &middot; '+p.status+'</p><p style="margin:0;color:var(--soft)">'+p.blurb+'</p>'+
+    '<ul class="feat">'+p.features.map(function(f){return '<li>'+f+'</li>'}).join('')+'</ul>';
+  var card=document.querySelector('.card[data-id="'+id+'"]');
+  if(fromMap && card) card.scrollIntoView({behavior:'smooth',block:'center'});
+}
+cards.addEventListener('click',function(e){ var c=e.target.closest('.card'); if(c) focus(c.dataset.id) });
+cards.addEventListener('keydown',function(e){
+  if(e.key!=='Enter'&&e.key!==' ') return;
+  var c=e.target.closest('.card'); if(c){ e.preventDefault(); focus(c.dataset.id) }
+});
+
+['f-hood','f-type','f-beds','f-status'].forEach(function(id){ el(id).addEventListener('change',render) });
+el('f-price').addEventListener('input',function(){
+  el('f-price-out').textContent = +this.value >= +this.max ? 'any' : money(+this.value);
+  render();
+});
+el('f-reset').addEventListener('click',function(){
+  el('f-hood').value=''; el('f-type').value=''; el('f-beds').value='0'; el('f-status').value='';
+  el('f-price').value=el('f-price').max; el('f-price-out').textContent='any'; render();
+});
+render();
+
+/* ---------- lead form ---------- */
+el('lead').addEventListener('submit',function(e){
+  e.preventDefault();
+  var f=this, name=f.name.value.trim(), mail=f.email.value.trim();
+  if(!name||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail)){
+    var bad=!name?f.name:f.email; bad.focus(); bad.style.borderColor='var(--clay)'; return;
+  }
+  var ok=f.querySelector('.form-ok');
+  if(!ok){ ok=document.createElement('p'); ok.className='form-ok'; f.insertBefore(ok,f.querySelector('button')) }
+  ok.textContent='Thanks '+name+'. In production this would reach '+"dana@northline.example"+'. Nothing was sent from this demo.';
+});
+</script>
+</body>
+</html>

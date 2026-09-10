@@ -1,0 +1,24 @@
+{
+  "name": "Northline",
+  "tagline": "Chicago Real Estate",
+  "agent": "Dana Okoye",
+  "role": "Broker, Northline Real Estate",
+  "city": "Chicago",
+  "intro": "I sell homes on the north and west sides, mostly to people buying their first or second place. No pressure, no jargon, and a straight answer when a listing is not right for you.",
+  "phone": "(555) 555-0164",
+  "email": "dana@northline.example",
+  "license": "IL Managing Broker #471.000000",
+  "office": { "line1": "1701 W North Ave, Suite 3", "line2": "Chicago, IL 60622" },
+  "stats": [
+    { "n": "62", "l": "Homes closed" },
+    { "n": "18", "l": "Days on market, median" },
+    { "n": "99%", "l": "Of list price" },
+    { "n": "9", "l": "Neighborhoods" }
+  ],
+  "demo": {
+    "show": true,
+    "text": "Demo site. Northline is a fictional brokerage, built to show what a small-business site can do.",
+    "linkText": "Made by Framework Studio",
+    "url": "https://tahvia127.github.io/framework-studio/"
+  }
+}
